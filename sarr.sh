@@ -21,6 +21,6 @@ SMFILES=($(find $1 -name '*.sm'))
 ##Main Script
 for SMs in ${SMFILES[@]}
 do
-  sed -i '/s/.mp3/.ogg/g' $SMs
+  sed -i 's/.mp3/.ogg/g' $SMs
 done
 exit 0
