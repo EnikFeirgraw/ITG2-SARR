@@ -1,4 +1,5 @@
 #!/bin/bash
+#Created by EnikFeirgraw for the Rhythm Gaming Community
 
 ##Help Menu
 helpMENU () {
@@ -14,13 +15,14 @@ if [[ $# -eq 0 ]]; then
 fi
 
 ##Variables
-SEARCH=.mp3
-REPLACE=.ogg
-SMFILES=($(find $1 -name '*.sm'))
+IFS=$'\n' #Sets newline as the array seperator, instead of spaces.
+set -f
+SMFILES=($(find $1 -name '*.sm')) #Finds files from the first given argument
 
 ##Main Script
 for SMs in ${SMFILES[@]}
 do
-  sed -i 's/.mp3/.ogg/g' $SMs
+  sed -i 's/.mp3/.ogg/g' $SMs #Replaces the .mp3 in .sm files with .ogg
+#echo $SMs #Uncomment this line to test find results
 done
 exit 0
