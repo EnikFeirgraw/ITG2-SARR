@@ -17,7 +17,7 @@ fi
 ##Variables
 IFS=$'\n' #Sets newline as the array seperator, instead of spaces.
 set -f
-SMFILES=($(find $1 -name '*.sm')) #Finds files from the first given argument
+SMFILES=($(find $1 -iname '*.sm')) #Finds files from the first given argument
 
 ##Main Script
 for SMs in ${SMFILES[@]}
